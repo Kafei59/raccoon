@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Task extends Model
+class Work extends Model
 {
     use SoftDeletes;
 
@@ -24,4 +24,12 @@ class Task extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * Get the user owner (one-to-one)
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

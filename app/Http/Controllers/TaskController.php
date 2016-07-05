@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use App\User;
+use Auth;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -11,9 +13,10 @@ class TaskController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
         $tasks = Task::orderBy('created_at', 'asc')->get();
 
-        return view('tasks', array('tasks' => $tasks));
+        return view('tasks', array('tasks' => $tasks, 'user' => $user));
     }
 
     public function create(Request $request)
