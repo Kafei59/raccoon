@@ -17,9 +17,14 @@ class MainController extends Controller
         $user = Auth::user();
 
         if ($user) {
+            // Testing relationships
             $work = new Work();
             $work->name = "Lead developer";
             $user->work = $work;
+
+            $task = new Task();
+            $task->name = "Random task";
+            $user->tasks->add($task);
         }
 
         $tasks = Task::orderBy('created_at', 'asc')->get();

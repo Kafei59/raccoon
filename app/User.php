@@ -41,4 +41,12 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Work');
     }
+
+    /**
+     * Get tasks of user (one-to-many)
+     */
+    public function tasks()
+    {
+        return $this->hasMany('App\Task');
+    }
 }

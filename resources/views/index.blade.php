@@ -5,6 +5,7 @@
         @if ($user)
             <h1>Welcome {{ $user->name }}</h1>
             <h3>Job: {{ $user->work->name }}</h3>
+            <h3>Task: {{ $user->tasks{0}->name }}</h3>
         @else
             <h1>Welcome stranger</h1>
             <h3>You can log in <a href="{{ url('/auth/login') }}">here</a> or register <a href="{{ url('/auth/register') }}">here</a></h3>

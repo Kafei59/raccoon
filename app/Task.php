@@ -24,4 +24,12 @@ class Task extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * Get user owner (one-to-many)
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
