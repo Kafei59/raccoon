@@ -11,6 +11,10 @@
             <h3>You can log in <a href="{{ url('/auth/login') }}">here</a> or register <a href="{{ url('/auth/register') }}">here</a></h3>
         @endif
 
+        @role('admin')
+            <h4>And you are an admin !</h4>
+        @endrole
+
         @include('forms.task')
 
         @if (count($tasks) > 0)

@@ -26,3 +26,8 @@ Route::get('/', 'MainController@index');
 // Tasks Routes
 Route::post('/task', 'TaskController@create');
 Route::delete('/task/{id}', 'TaskController@delete');
+
+// Admin Routes
+Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
+    Route::get('/', 'AdminController@index');
+});
